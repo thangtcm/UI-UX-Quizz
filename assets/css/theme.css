@@ -14,6 +14,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --bs-blue: #4E92F9;
   --bs-indigo: #8845FF;
@@ -56,7 +57,7 @@
 
 body {
   margin: 0;
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -85,7 +86,6 @@ hr:not([size]) {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  /* font-family: "Nunito", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   line-height: 1.3;
   color: #242A33;
 }
@@ -221,13 +221,17 @@ sup {
 }
 
 a {
-  color: #4E92F9;
+  color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
-a:hover {
-  color: #3e75c7;
-  text-decoration: underline;
+a:hover,
+a:active,
+a:focus {
+    outline: none;
+    text-decoration: none;
+    color: var(--bs-blue);
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -323,6 +327,17 @@ th {
 label {
   display: inline-block;
 }
+
+input,
+button,
+a {
+    transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+}
+
 
 button {
   border-radius: 0;
@@ -5124,7 +5139,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: rgba(0, 0, 0, 0.95);
+  color: var(--bs-blue);
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -5213,7 +5228,7 @@ fieldset:disabled .btn {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 2.5rem;
+  border-radius: 1.5rem;
 }
 
 .card > hr {
@@ -5400,12 +5415,12 @@ fieldset:disabled .btn {
 .breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: 0.5rem;
-  color: #5A6980;
+  color: #999999;
   content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
 }
 
 .breadcrumb-item.active {
-  color: #5A6980;
+  color: var(--bs-blue);
 }
 
 .pagination {
@@ -5658,6 +5673,24 @@ fieldset:disabled .btn {
   }
 }
 
+.floating-horizontal{
+  animation: floating-horizontal 3s ease-in-out infinite;
+}
+
+@keyframes floating-horizontal {
+  0% {
+      transform: translate(0)
+  }
+
+  50% {
+      transform: translate(15px)
+  }
+
+  to {
+      transform: translate(0)
+  }
+}
+
 .progress {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5836,6 +5869,7 @@ fieldset:disabled .btn {
     -ms-flex-direction: row;
     flex-direction: row;
   }
+  
   .list-group-horizontal-sm > .list-group-item:first-child {
     border-bottom-left-radius: 0.25rem;
     border-top-right-radius: 0;
@@ -6455,6 +6489,7 @@ fieldset:disabled .btn {
     height: 100%;
     margin: 0;
   }
+
   .modal-fullscreen-sm-down .modal-content {
     height: 100%;
     border: 0;
@@ -6568,7 +6603,7 @@ fieldset:disabled .btn {
   z-index: 1080;
   display: block;
   margin: 0;
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Inter", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6681,7 +6716,7 @@ fieldset:disabled .btn {
   z-index: 1070;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Inter", "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7090,6 +7125,8 @@ fieldset:disabled .btn {
     transform: rotate(360deg) /* rtl:ignore */;
   }
 }
+
+
 
 .spinner-border {
   display: inline-block;
@@ -17433,7 +17470,7 @@ label,
 .pagination,
 .valid-feedback,
 .invalid-feedback {
-  font-family: "Nunito", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Inter","Nunito", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 pre {
@@ -17483,17 +17520,6 @@ ul {
 }
 
 /*-----------------------------------------------
-|   Font family
------------------------------------------------*/
-.font-sans-serif {
-  font-family: "Nunito", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.font-base {
-  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-/*-----------------------------------------------
 |   Error Page
 -----------------------------------------------*/
 .fs-error {
@@ -17520,12 +17546,12 @@ ul {
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient:hover {
+/* .text-gradient:hover {
   background: -o-linear-gradient(40deg, #fff, #fff);
   background: linear-gradient(50deg, #fff, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 /*-----------------------------------------------
 |   Backgrounds
@@ -18441,7 +18467,7 @@ ul {
 }
 
 .btn-klean-outline:hover {
-  background: #F9FAFD;
+  background: linear-gradient(#EE6BFA, #4E92F9);
   border: 1px solid #4E92F9;
 }
 
@@ -18690,6 +18716,59 @@ ul {
   transform: translateY(-50%);
 }
 
+.text-title{
+  color: var(--grey-500, #47484C);
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+}
+
+.text-content{
+  color: #8D8E94;
+}
+
+
+/*[ Hover img zoom]
+-----------------------------------------------------------
+*/
+.hov-img-zoom {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+.hov-img-zoom img {
+  width: 100%;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.hov-img-zoom:hover img {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.spinner-custom{
+    width: 8rem;
+    height: 8rem;
+    border: 1.2em solid rgb(255, 205, 190);
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: 2s linear infinite spinner-border;
+    animation: 2s linear infinite spinner-border;
+    left: 1rem;
+    bottom: 50%;
+}
 /*-----------------------------------------------
 |   User Styles
 -----------------------------------------------*/
